@@ -10,7 +10,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.11.1",
-    "webpack-cli": "^3.0.2"
+    "webpack": "4.11.1",
+    "webpack-cli": "3.0.2"
+  },
+  "dependencies": {
+    "@angular/common": "^.0.3",
+    "@angular/compiler": "6.0.3",
+    "@angular/core": "6.0.3",
+    "@angular/platform-browser": "6.0.3",
+    "@angular/platform-browser-dynamic": "6.0.3",
+    "core-js": "2.5.7",
+    "rxjs": "6.2.0",
+    "zone.js": "0.8.26"
   }
 }

@@ -1,4 +1,5 @@
 ﻿const path = require('path');
+const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -28,9 +29,9 @@ module.exports = {
                 use: [{
                     loader: "style-loader",
                 }, {
-                loader: "css-loader",
+                    loader: "css-loader",
                 }, {
-                loader: "postcss-loader",
+                    loader: "postcss-loader",
                     options: {
                         plugins: function () {
                             return [
@@ -40,7 +41,7 @@ module.exports = {
                         },
                     },
                 },
-                    {
+                {
                     loader: "sass-loader",
                 }],
             },
@@ -60,6 +61,10 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)@angular/,
+            path.resolve(__dirname, './src')
+        ),
         new HtmlWebpackPlugin({
             template: "src/index.html",
         }),

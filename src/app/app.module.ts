@@ -1,4 +1,5 @@
-﻿import { BrowserModule } from "@angular/platform-browser";
+﻿import { AgmCoreModule } from '@agm/core';
+import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from '@ngrx/effects';
@@ -17,6 +18,9 @@ import { AppEffects } from "./app.effect";
         StoreModule.forRoot({ count: counterReducer }),
         EffectsModule.forRoot([AppEffects]),
         StoreDevtoolsModule.instrument(),
+        AgmCoreModule.forRoot({
+            apiKey: "AIzaSyB8A0Bw8-24pobZWFisjcFYerUh4cnbrg8",
+        })
     ],
     bootstrap: [
       AppComponent,  

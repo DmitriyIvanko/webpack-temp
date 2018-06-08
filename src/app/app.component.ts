@@ -5,6 +5,8 @@ import {
 } from "@ngrx/store";
 import { Observable } from 'rxjs';
 
+//import { } from "../../node_modules/@types/googlemaps";
+
 import {
     INCREMENT,
     DECREMENT,
@@ -22,6 +24,11 @@ interface AppState {
 })
 export class AppComponent {
     public title: string = "Hello World!!!";
+
+    lat: number = 59.95;
+    lng: number = 30.32;
+    // @ViewChild('gmap') gmapElement: any;
+    // map: google.maps.Map;
 
     public count$: Observable<number>;
 
@@ -41,3 +48,4 @@ export class AppComponent {
         this.store.dispatch({ type: RESET });
     }
 }
+// 

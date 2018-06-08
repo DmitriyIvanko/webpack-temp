@@ -17,6 +17,7 @@ interface AppState {
 
 @Component({
     selector: "app-root",
+    styles: [require("./app.scss").toString()],
     template: require("./app.template.html"),
 })
 export class AppComponent {

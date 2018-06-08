@@ -6,9 +6,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        "polyfills": "./src/polyfills.ts",
-        "vendor": "./src/vendor.ts",
-        "app": './src/main.ts'
+        "polyfills": "./src/app/polyfills.ts",
+        "vendor": "./src/app/vendor.ts",
+        "app": './src/app/main.ts'
     },
     devtool: "inline-source-map",
     module: {
@@ -53,7 +53,7 @@ module.exports = {
     },
     output: {
         filename: '[name].[chunkhash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, "dist")
     },
     optimization: {
         splitChunks: {
@@ -62,12 +62,15 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)@angular/,
-            path.resolve(__dirname, './src')
-        ),
         new HtmlWebpackPlugin({
-            template: "src/index.html",
+            template: "src/app/index.html",
         }),
+        new webpack.ContextReplacementPlugin(
+            // if you have anymore problems tweet me at @gdi2290
+            // The (\\|\/) piece accounts for path separators for Windows and MacOS
+            /(.+)?angular(\\|\/)core(.+)?/,
+            path.join(__dirname, 'app'), // location of your src
+            {} // a map of your routes 
+        ),
     ],
 };

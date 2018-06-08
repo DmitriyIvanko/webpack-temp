@@ -19,13 +19,19 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
+                test: /\.(ts|js)$/,
+                loaders: [
+                    'angular-router-loader'
+                ]
+            },
+            {
                 test: /\.html$/,
                 use: [{
                     loader: "html-loader",
                 }]
             },
             {
-                test: /\.scss$/,
+                test: /\.(scss)$/,
                 exclude: /node_modules/,
                 use: [{
                     loader: "style-loader",

@@ -7,10 +7,23 @@
   border: 3px solid #f8f9fa;
 }
 
+.button-panel-vh {
+  height: 40vh;
+}
+
+.header-vh {
+  height: 5vh;
+}
+
+.main-panel-vh {
+  height: 55vh;
+}
+
 agm-map {
   height: 55vh;
 }
 
-.table-panel {
-  height: 38vh;
+.map-panel {
+  padding-right: 0;
+  padding-left: 0;
 }

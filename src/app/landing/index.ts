@@ -1,1 +1,1 @@
-﻿export { LANDING_PATH } from "./landing.route";
+﻿export { LANDING_ROUTE } from "./landing.route";

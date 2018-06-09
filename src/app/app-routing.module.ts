@@ -4,27 +4,27 @@ import {
     Routes,
 } from "@angular/router";
 
-import { LANDING_PATH } from "./landing";
-import { MAIN_PATH } from "./main/index";
+import { LANDING_ROUTE } from "./landing";
+import { USER_ROUTE } from "./user";
 
 const ROUTES: Routes = [
     {
         loadChildren: "./landing/landing.module#LandingModule",
-        path: LANDING_PATH,
+        path: LANDING_ROUTE,
     },
     {
-        loadChildren: "./main/main.module#MainModule",
-        path: MAIN_PATH,
+        loadChildren: "./user/user.module#UserModule",
+        path: USER_ROUTE,
     },
     {
         path: "",
         pathMatch: "full",
-        redirectTo: LANDING_PATH,
+        redirectTo: LANDING_ROUTE,
     },
     {
         // component: PageNotFoundComponent,
         path: "**",
-        redirectTo: LANDING_PATH,
+        redirectTo: LANDING_ROUTE,
     },
 ];
 

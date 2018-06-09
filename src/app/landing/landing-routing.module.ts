@@ -8,6 +8,12 @@ import { LandingComponent } from "./landing.component";
 
 const ROUTES: Routes = [
     {
+        children: [
+            {
+                loadChildren: "./sign-in/sign-in.module#SignInModule",
+                path: "sign-in",
+            },
+        ],
         component: LandingComponent,
         path: "",
     },

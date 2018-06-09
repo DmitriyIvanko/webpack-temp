@@ -4,11 +4,11 @@ import {
     Routes,
 } from "@angular/router";
 
-import { MainComponent } from "./main.component"
+import { SignInContainer } from "./sign-in.container";
 
 const ROUTES: Routes = [
     {
-        component: MainComponent,
+        component: SignInContainer,
         path: "",
     },
 ];
@@ -21,4 +21,4 @@ const ROUTES: Routes = [
         RouterModule.forChild(ROUTES),
     ],
 })
-export class MainRoutingModule { }
+export class SignInRoutingModule { }

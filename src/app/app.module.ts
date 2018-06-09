@@ -11,6 +11,9 @@ import { counterReducer } from "./counter";
 import { AppEffects } from "./app.effect";
 
 @NgModule({
+    bootstrap: [
+        AppComponent,
+    ],
     declarations: [
       AppComponent, 
     ],
@@ -24,8 +27,6 @@ import { AppEffects } from "./app.effect";
         }),
         AppRoutingModule,
     ],
-    bootstrap: [
-      AppComponent,  
-    ],
+
 })
 export class AppModule { }

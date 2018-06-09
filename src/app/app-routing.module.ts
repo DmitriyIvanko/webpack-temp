@@ -5,11 +5,19 @@ import {
 } from "@angular/router";
 
 import { LANDING_PATH } from "./landing";
+import { MAIN_PATH } from "./main/index";
+
+import { LandingModule } from "./landing/landing.module";
+import { MainModule } from "./main/main.module";
 
 const ROUTES: Routes = [
     {
-        loadChildren: "./landing/landing.module#LandingModule",
+        loadChildren: () => LandingModule,
         path: LANDING_PATH,
+    },
+    {
+        loadChildren: () => MainModule,
+        path: MAIN_PATH,
     },
     {
         path: "",
@@ -28,7 +36,7 @@ const ROUTES: Routes = [
         RouterModule,
     ],
     imports: [
-        RouterModule.forRoot(ROUTES),
+        RouterModule.forRoot(ROUTES, { enableTracing: true }),
     ],
 })
 export class AppRoutingModule { }

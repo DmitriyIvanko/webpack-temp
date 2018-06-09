@@ -52,6 +52,10 @@ module.exports = {
                     loader: "sass-loader",
                 }],
             },
+            {
+                test: /\.(config)$/,
+                loader: "file-loader?name=[name].[ext]",
+            },
         ],
     },
     resolve: {

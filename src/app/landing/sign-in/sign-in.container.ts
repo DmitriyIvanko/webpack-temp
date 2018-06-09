@@ -9,7 +9,7 @@ import { State } from "./sign-in.reducer";
 
 @Component({
     selector: "ab-sign-in-container",
-    template: `<ab-sign-in></ab-sign-in>`,
+    template: `<ab-sign-in (signIn)="onSignIn($event)"></ab-sign-in>`,
 })
 export class SignInContainer implements OnInit {
 

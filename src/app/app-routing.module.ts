@@ -7,16 +7,13 @@ import {
 import { LANDING_PATH } from "./landing";
 import { MAIN_PATH } from "./main/index";
 
-import { LandingModule } from "./landing/landing.module";
-import { MainModule } from "./main/main.module";
-
 const ROUTES: Routes = [
     {
-        loadChildren: () => LandingModule,
+        loadChildren: "./landing/landing.module#LandingModule",
         path: LANDING_PATH,
     },
     {
-        loadChildren: () => MainModule,
+        loadChildren: "./main/main.module#MainModule",
         path: MAIN_PATH,
     },
     {

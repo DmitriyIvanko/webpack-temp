@@ -5,11 +5,18 @@ import {
     ofType,
 } from "@ngrx/effects"
 import { Action } from "@ngrx/store";
-import { Observable } from "rxjs";
 import {
+    Observable,
+    of,
+} from "rxjs";
+import {
+    catchError,
     map,
     switchMap,
+    tap,
 } from "rxjs/operators";
+
+import { AuthenticationTicketService } from "../authentication-ticket";
 
 import * as sessionActions from "./session.actions";
 
@@ -18,6 +25,7 @@ export class SessionEffect {
 
     constructor(
         private actions$: Actions,
+        private authenticationTicketService: AuthenticationTicketService,
     ) { }
 
     @Effect()
@@ -26,9 +34,16 @@ export class SessionEffect {
             ofType(sessionActions.SIGN_IN_USER),
             map((action: sessionActions.SignInUserAction) => action.payload),
             switchMap((payload) => {
-                // to do...
+                return this.authenticationTicketService.getAuthenticationTiket(payload.login, payload.password);
             }),
+            map((authTicket) => {
+                return new sessionActions.SignInUserSuccessAction(authTicket);
+            }),
+            catchError((error) => {
+                console.error(error);
 
+                return of(new sessionActions.SignInUserFailAction());
+            }),
         );
     }
 }

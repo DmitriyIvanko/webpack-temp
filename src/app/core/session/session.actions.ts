@@ -1,5 +1,7 @@
 ﻿import { Action } from "@ngrx/store";
 
+import { AuthenticationTicketModel } from "../authentication-ticket";
+
 export const SIGN_IN_USER = "[SESSION] SIGN_IN_USER";
 export const SIGN_IN_USER_FAIL = "[SESSION] SIGN_IN_USER_FAIL";
 export const SIGN_IN_USER_SUCCESS = "[SESSION] SIGN_IN_USER_SUCCESS";
@@ -17,6 +19,8 @@ export class SignInUserFailAction implements Action {
 
 export class SignInUserSuccessAction implements Action {
     public readonly type = SIGN_IN_USER_SUCCESS;
+
+    constructor(public payload: AuthenticationTicketModel) { }
 }
 /* tslint:enable:max-classes-per-file */
 

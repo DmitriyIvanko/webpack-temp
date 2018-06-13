@@ -9,6 +9,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { counterReducer } from "./counter";
 import { AppEffects } from "./app.effect";
+import { CoreModule } from "./core";
+import { HttpModule } from "@angular/http";
 
 @NgModule({
     bootstrap: [
@@ -19,6 +21,7 @@ import { AppEffects } from "./app.effect";
     ],
     imports: [
         BrowserModule,
+        HttpModule,
         StoreModule.forRoot({ count: counterReducer }),
         EffectsModule.forRoot([AppEffects]),
         StoreDevtoolsModule.instrument(),
@@ -26,6 +29,7 @@ import { AppEffects } from "./app.effect";
             apiKey: "AIzaSyB8A0Bw8-24pobZWFisjcFYerUh4cnbrg8",
         }),
         AppRoutingModule,
+        CoreModule,
     ],
 
 })

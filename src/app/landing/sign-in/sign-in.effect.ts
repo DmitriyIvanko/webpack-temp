@@ -21,7 +21,7 @@ export class SignInEffect {
         return this.actions$.pipe(
             ofType(signInActions.INIT),
             map(action => {
-                console.log("Effected");
+                // console.log("Effected");
             }));
     }
 }

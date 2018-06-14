@@ -4,13 +4,16 @@ import {
     Http,
     Request
 } from "@angular/http";
-import { Observable } from "rxjs";
+import {
+    Observable,
+    of,
+} from "rxjs";
 import { map } from "rxjs/operators";
 
 import { AuthenticationTicketMapper } from "./authentication-ticket.mapper";
 import { AuthenticationTicketModel } from "./authentication-ticket.model";
 import { AppSettings } from "../../app.settings";
-
+import { AUTHENTIFICATION_TICKET } from "./authentication-ticket.mock";
 
 @Injectable()
 export class AuthenticationTicketService {
@@ -31,9 +34,12 @@ export class AuthenticationTicketService {
             url: `${AppSettings.connectionString}api/token`,
         });
 
-        return this.http.request(request).pipe(
-            map((response) => this.authenticationTiketMapper.mapInstanceToClient(response.json())),
-        );
+        // to do: mock, remove when server side will be ready.
+        return of(AUTHENTIFICATION_TICKET);
+
+        // return this.http.request(request).pipe(
+        //     map((response) => this.authenticationTiketMapper.mapInstanceToClient(response.json())),
+        // );
     }
 
     public refreshAutenticationTicket(

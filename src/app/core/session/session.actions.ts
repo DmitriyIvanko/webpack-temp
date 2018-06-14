@@ -24,7 +24,7 @@ export class SignInUserSuccessAction implements Action {
 }
 /* tslint:enable:max-classes-per-file */
 
-export type SessionActions =
+export type Actions =
     SignInUserAction |
     SignInUserFailAction |
     SignInUserSuccessAction;

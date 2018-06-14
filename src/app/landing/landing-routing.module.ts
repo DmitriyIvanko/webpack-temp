@@ -7,6 +7,7 @@ import {
 import { LandingComponent } from "./landing.component";
 
 const ROUTES: Routes = [
+    { path: "", redirectTo: "sign-in", pathMatch: "full" },
     {
         children: [
             {

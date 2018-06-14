@@ -8,7 +8,7 @@ module.exports = {
     entry: {
         "polyfills": "./src/app/polyfills.ts",
         "vendor": "./src/app/vendor.ts",
-        "app": "./src/app/main.ts"
+        "app": "./src/app/main.ts",
     },
     devtool: "inline-source-map",
     module: {

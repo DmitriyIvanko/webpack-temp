@@ -2,6 +2,7 @@
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from '@ngrx/store';
 
+import { SharedModule } from "../../shared";
 import { SignInComponent } from "./sign-in.component";
 import { SignInContainer } from "./sign-in.container";
 import { SignInRoutingModule } from "./sign-in-routing.module";
@@ -18,6 +19,7 @@ import {
         SignInContainer,
     ],
     imports: [
+        SharedModule,
         SignInRoutingModule,
         StoreModule.forFeature(FEATURE_NAME, reducer),
         EffectsModule.forFeature([SignInEffect]),

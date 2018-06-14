@@ -33,3 +33,5 @@ export function reducer(
             return state;
     }
 }
+
+export const getAuthenticationTicketEntity = (state: State) => state.entity;

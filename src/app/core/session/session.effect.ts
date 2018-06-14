@@ -1,10 +1,15 @@
 ﻿import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import {
     Actions,
     Effect,
     ofType,
 } from "@ngrx/effects"
-import { Action } from "@ngrx/store";
+import {
+    Action,
+    Store,
+    select,
+} from "@ngrx/store";
 import {
     Observable,
     of,
@@ -16,9 +21,13 @@ import {
     tap,
 } from "rxjs/operators";
 
-import { AuthenticationTicketService } from "../authentication-ticket";
+import {
+    AuthenticationTicketService,
+    UserRoleEnum,
+} from "../authentication-ticket";
 
 import * as sessionActions from "./session.actions";
+import * as authenticationTicketReducer from "../authentication-ticket/authentication-ticket.reducer";
 
 @Injectable()
 export class SessionEffect {
@@ -26,7 +35,41 @@ export class SessionEffect {
     constructor(
         private actions$: Actions,
         private authenticationTicketService: AuthenticationTicketService,
+        private store: Store<authenticationTicketReducer.State>,
+        private router: Router,
     ) { }
+
+    @Effect({ dispatch: false })
+    public onSignInSuccess(): Observable<void> {
+        return this.actions$.pipe(
+            ofType(
+                sessionActions.SIGN_IN_USER_SUCCESS,
+            ),
+            map((action: sessionActions.SignInUserSuccessAction) => action.payload),
+            map((payload) => {
+                switch (payload.role) {
+                    case UserRoleEnum.User:
+                        this.router.navigate(["/user"]);
+                        break;
+                    default:
+                        break;
+                }
+                // return this.store.pipe(select(authenticationTicketReducer.getAuthenticationTicketEntity),
+                //     map((authTicket) => {
+                //         console.log("Test");
+                //         // switch (authTicket.role) {
+                //         //     case UserRoleEnum.User:
+                //         //         this.router.navigate([""]);
+                //         //         break;
+                //         //     default:
+                //         //         break;
+                //         // }
+                //     }),
+                // )
+                    
+            }),
+        );
+    }
 
     @Effect()
     public signInUser(): Observable<Action> {

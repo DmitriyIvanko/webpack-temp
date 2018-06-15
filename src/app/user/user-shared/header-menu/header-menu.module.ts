@@ -1,5 +1,5 @@
 ﻿import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
+import { BsDropdownModule } from "ngx-bootstrap";
 
 import { HeaderMenuComponent } from "./header-menu.component";
 
@@ -11,7 +11,7 @@ import { HeaderMenuComponent } from "./header-menu.component";
         HeaderMenuComponent,
     ],
     imports: [
-        RouterModule,
+        BsDropdownModule.forRoot(),
     ]
 })
 export class HeaderMenuModule { }

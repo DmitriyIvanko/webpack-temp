@@ -18,3 +18,4 @@ import "rxjs";
 import "@ngrx/effects";
 import "@ngrx/store";
 import "@ngrx/store-devtools";
+import "ngx-bootstrap";

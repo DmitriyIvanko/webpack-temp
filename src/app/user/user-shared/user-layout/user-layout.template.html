@@ -1,0 +1,46 @@
+﻿<div>
+    <div class="row no-gutters">
+        <div class="col-sm-2 main-panel-vh main-panel">
+            <router-outlet></router-outlet>
+            <!--<div class="row bg-light no-gutters">
+                <div class="col-sm-3">
+                    <a class="text-dark nav-link" href="#">GFA</a>
+                </div>
+                <div class="col-sm-3">
+                    <a class="text-dark nav-link" href="#">NO</a>
+                </div>
+                <div class="col-sm-3">
+                    <a class="text-dark nav-link" href="#">SIM</a>
+                </div>
+                <div class="col-sm-3">
+                    <a class="text-dark nav-link" href="#">TO</a>
+                </div>
+            </div>
+            <div id="list-example" class="list-group">
+                <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-2">Item2</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+            </div>-->
+        </div>
+        <div class="col-sm-2 main-panel-vh main-panel">
+            <router-outlet name="scenario-item"></router-outlet>
+        </div>
+        <div class="col-sm-8 map-panel">
+            <router-outlet name="scenario-setting"></router-outlet>
+            <!--<agm-map [latitude]="lat" [longitude]="lng">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>-->
+        </div>
+    </div>
+</div>
+<div>
+    <div class="row no-gutters">
+        <div class="col-sm-2 main-panel button-panel-vh">
+            <router-outlet name="table-master"></router-outlet>
+        </div>
+        <div class="col-sm-10 main-panel button-panel-vh">
+            <router-outlet name="table-detail"></router-outlet>
+        </div>
+    </div>
+</div>

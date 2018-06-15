@@ -5,6 +5,7 @@ import {
 } from "@angular/router";
 
 import { UserComponent } from "./user.component"
+import { UserLayoutComponent } from "./user-shared";
 
 const ROUTES: Routes = [
     {
@@ -12,7 +13,18 @@ const ROUTES: Routes = [
             {
                 loadChildren: "./welcome/welcome.module#WelcomeModule",
                 path: "welcome",
-            }
+            },
+            { path: "", redirectTo: "gfa", pathMatch: "full" },
+            {
+                children: [
+                    {
+                        loadChildren: "./scenario-tree/scenario-tree.module#ScenarioTreeModule",
+                        path: "",
+                    },
+                ],
+                component: UserLayoutComponent,
+                path: "",
+            },
         ],
         component: UserComponent,
         path: "",

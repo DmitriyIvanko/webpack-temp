@@ -49,7 +49,7 @@ export class SessionEffect {
             map((payload) => {
                 switch (payload.role) {
                     case UserRoleEnum.User:
-                        this.router.navigate(["/user"]);
+                        this.router.navigate(["/user/welcome"]);
                         break;
                     default:
                         break;

@@ -4,17 +4,11 @@ import {
     Routes,
 } from "@angular/router";
 
-import { UserComponent } from "./user.component"
+import { WelcomeComponent } from "./welcome.component";
 
 const ROUTES: Routes = [
     {
-        children: [
-            {
-                loadChildren: "./welcome/welcome.module#WelcomeModule",
-                path: "welcome",
-            }
-        ],
-        component: UserComponent,
+        component: WelcomeComponent,
         path: "",
     },
 ];
@@ -27,4 +21,4 @@ const ROUTES: Routes = [
         RouterModule.forChild(ROUTES),
     ],
 })
-export class UserRoutingModule { }
+export class WelcomeRoutingModule { }

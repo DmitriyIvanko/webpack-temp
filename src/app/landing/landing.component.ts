@@ -4,4 +4,4 @@
     selector: "ab-landing",
     template: require("./landing.template.html"),
 })
-export class LandingComponent {}
+export class LandingComponent { }
